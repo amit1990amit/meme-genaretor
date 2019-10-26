@@ -2,3 +2,281 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+/* header **/
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #e3e3e3;
+}
+
+header{ 
+  height: 170px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+header .header-wrapper {
+  height: 65px;
+  background-color: #ff7f00;
+}
+
+.logo{
+  margin-left: 50px;
+  
+}
+.logo img{
+  height: 30px;
+}
+
+.clean-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu{
+  margin-right: 40px;
+}
+
+.nav-option{
+  width: 60px;
+  height: 16px;
+  font-size: 19px;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: none;
+  margin: 15px;
+  /* font-family: ; */
+}
+
+nav li:first-child{
+  border-right: 1px solid #ffffff ;
+}
+
+.toggle-menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.75rem;
+  padding: 20px;
+  display: none;
+}
+
+
+
+ 
+
+
+/* meme container */
+
+.image-container {
+    max-width: 1200px;
+    max-height: 900px;
+    margin: auto 50px;
+    /* overflow: hidden; */
+    transition: all 0.7s ease-out;
+    background: #e3e3e3;
+    display: grid; 
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 20px;
+  }
+
+
+ 
+  
+  .meme {
+    max-height: 280px;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+    transform-origin: top left;
+    transition: transform 0.5s ease-out;
+  }
+  
+  .meme:hover {
+    transform: scale(1.1);
+  }
+
+
+  /* info container*/
+
+
+  .info-container{
+    height: 550px;
+    background-color: white;
+  }
+
+  .icon-container{
+    margin-top: 20px;
+  }
+
+  .info{
+    margin-left: 1.25rem;
+  }
+
+  .margin-container{
+    height: 350px;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  .info-details{
+    line-height: normal;
+    font-family: monospace;
+    font-size: 20px;
+    text-align: left;
+    color: #000000;
+  }
+
+  .info-details p:first-child{
+    font-size: 25px;
+    font-weight: bold;
+  }
+
+  
+
+
+
+
+  .profile-pic{
+    max-width: 322px;
+    max-height: 322px;
+    /* min-width: 100px; */
+    border-radius: 50%;
+    background-color: #ffffff;
+  }
+
+  .icon {
+    width: 39px;
+    height: 39px;
+    border-radius: 12px;
+    background-color: #ff7f00;
+    color: white;
+    font-size: 30px;
+    margin-right: 1rem;
+  }
+
+
+
+
+
+  /* footer */
+
+  footer{
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 207px;
+    background-color: #ff7f00;
+  }
+
+  .rights{
+    width: 206px;
+    height: 19px;
+    font-family: monospace;
+    font-size: 19px;
+    font-weight: 100;
+    margin-left: 50px;
+
+    text-align: center;
+    color: #ffffff;
+  }
+
+
+
+  @media (max-width: 400px){
+
+    /*head */
+
+    header{
+      height: 250px;
+
+    }
+
+    .toggle-menu-btn {
+      display: block;
+    }
+    .main-menu > *{
+      display: none;
+    }
+
+    /* meme container */
+
+
+
+    .image-container {
+      /* max-width: 1200px; */
+      max-height: 700px;
+      margin: auto 10px;
+      /* overflow: hidden; */
+      transition: all 0.7s ease-out;
+      background: #e3e3e3;
+      display: grid; 
+      grid-template-columns: 1fr 1fr ;
+      grid-template-rows: 1fr 1fr 1fr 1fr;
+      grid-gap: 4px;
+    }
+
+
+
+
+    .meme {
+      max-height: 160px;
+      width: 100%;
+      /* background-position: center;
+      background-size: cover;
+      transform-origin: top left;
+      transition: transform 0.5s ease-out; */
+    }
+
+
+    /* info container*/
+
+    .margin-container{
+      flex-direction: column;
+      margin: auto;
+    }
+    .margin-container > *{
+      margin: 5px;
+      text-align: center;
+    }
+
+    .profile-pic{
+      width: 150px;
+    }
+    .info-container{
+      height: 450px;
+    }
+    
+
+    .info-details{
+      width: 273px;
+      height: 84px;
+      font-family: monospace;
+      font-size: 15px;
+      text-align: center;
+
+    }
+  
+    .info-details p:first-child{
+      width: 156px;
+      height: 19px;
+      font-size: 22px;
+      font-weight: bold;
+      text-align: center;
+      color: #ff7f00;
+    }
+
+
+
+  
+
+
+
+
+
+
+  }
+

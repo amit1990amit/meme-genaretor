@@ -1,4 +1,11 @@
 @font-face {
     font-family: impact;
-    src: url('../font/impact/impact.ttf')
+    src: url('../font/impact/impact.ttf');
+}
+
+
+/* doest let me name monserat */
+@font-face {
+    font-family: monospace;
+    src: url('../font/monserat/Montserrat.ttf');
 }

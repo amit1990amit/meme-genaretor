@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="css/canvas-style.css"> 
     <link rel="stylesheet" href="css/helpers.css">
     <link rel="stylesheet" href="css/fonts.css" />
-    <link rel="stylesheet" href="css/media-queries.css" />
+    <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <title>Canvas</title>
 </head>
 <body onload="init()"> 
  
     <div class="container flex center column">
-        <header> 
-            <h1>my meme canvas</h1>
-            <form onsubmit="onSubmit(event)">
-                <label for="text">Text:</label>
-                <input oninput="onSetText()" type="text" id="text" name="text" placeholder="txt" />
-                <input type="submit" value="Save" />
-             </form>        
+        <header>
+            <section class="container header-wrapper flex align-center space-between">
+                <div class="logo"><img src="logo/LOGO.png" alt="logo"></div>
+                <nav>
+                    <ul class="main-menu clean-list flex align-center">
+                        <li>
+                            <a href="#" class="nav-option">Gallery</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-option">About</a>
+                        </li>
+                    </ul>
+                    <button class="toggle-menu-btn fa" onclick="toggleMenu()" alt="Open main menu">☰</button>
+                    <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
+                </nav>
+            </section>
         </header>
         <div class="main-container flex ">
             <div class="secondery-container flex flex-space-around">
@@ -30,26 +39,57 @@
                 <div class="image-convas">
 
                 </div>
-                <div class="btn-container flex">
-                    <form onsubmit="onSubmit(event)">
-                        <label for="text">Text:</label>
-                        <input oninput="onSetText()" type="text" id="text" name="text" placeholder="txt" />
-                        <input type="submit" value="Save" />
-                        <button onclick="onIncrease()">increce</button>
-                        <button onclick="onDecrease()">decrease</button>
-                    </form>    
+
+                <div class="btn-container flex column">
+                    <div>
+                        
+                        <input onkeyup="onSetText()" type="text" id="text" name="text" placeholder="txt" />
+                    </div>  
+                    <div class="btn-con">
+                        <button onclick="onSwichLine()">switch</button>
+                        <button>add</button>
+                        <button>remove</button>
+                        <button onclick="onIncrease()">incerse</button>
+                        <button onclick="onDecrease()">decrise</button>
+                        <button onclick="onUp()">bottom</button>
+                        <button onclick="onDown()">top</button>
+                        <button onclick="onMoveLineUp()">+</button>
+                        <button onclick="onMoveLineDown()">-</button>
+               
+                        <input onchange="onChangeColor(this.value)" type="color" id="color" name="color"/>
+                       
+                        <select onchange="onAddIcon(this.value)">
+                            <option value="😍">😍</option>
+                            <option value="🤘">🤘</option>
+                            <option value="🙈">🙈</option>
+                            <option value="🐷">🐷</option>
+                            <option value="😈">😈</option>
+                        </select>
+                        <select class="font-select" onchange="onChangeFont(this.value)">
+                                <option value="Impact">Impact</option>
+                                <option value="Ariel">Ariel</option>
+
+                        </select>
+                        
+                    </div>  
+                    
+        
                 </div>  
             </div>
         </div>
             
-
-        <footer>foot</footer>
+        <img src="icons/increase.png" alt="">
+        
+        <footer class="flex column both-align-center ">
+            <div class="logo"><img src="logo/LOGO.png" alt="logo"></div>
+            <div class="rights">all rights reserved 2019</div>
+        </footer >
     </div>
 
 
 
     <script src="js/utils.js"></script>
-    <script src="js/canvas-service.js"></script>
+    <script src="js/service.js"></script>
     <script src="js/canvas-controler.js"></script>
 </body>
 </html>

@@ -7,62 +7,80 @@ function init() {
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d')
     renderImage();
-    setTimeout(drawImg, 200)
-    setInterval(() => {
-        drawText(100, 100)
-    }, 300);
-
-
+    setTimeout(drawImg, 100)
 }
 
 function renderImage() {
-    let id = loadIdFromStorage();
+    let meme = loadMemeFromStorage();
+    let id = meme.selectedImgId;
     let img = findImgById(id)
-    console.log(id)
+ 
     let strHTML = `<img src="${img.url}" alt="meme">`;
-
     document.querySelector('.image-convas').innerHTML = strHTML;
-
 }
 
+function renderCanvas(){
+    drawImg();
+    setText(); 
+}
 
 function drawImg() {
-    const img = document.querySelector('img');
+    const img = document.querySelector('.image-convas img');
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 }
 
-
-function drawText(x, y) {
-    let details = loadDetailsFromStorage();
-    let txt = details.txt;
-
-    gCtx.beginPath();
-    // gCtx.fillStyle = 'orange'
-    // gCtx.fillRect(0, 0, gCanvas.width, gCanvas.height)
-    gCtx.fillStyle = '#ffffff'
-    // gCtx.strokeStyle = 'green'
-    //gCtx.lineWidth = 5
-    gCtx.font = "40px impact Arial";
-    gCtx.fillText(txt, x, y);
-    gCtx.closePath();
-    gCtx.strokeText(txt, x, y);
-}
-
 function onSetText(){
-    let txt = document.querySelector('input').value;
-    gMeme.txts[0].line = txt;
-    setText()
-    console.log(txt)   
+    let txt = document.querySelector('.btn-container input').value;
+    changeMemeTxt(txt)
+    saveMemeToStorage()
+    renderCanvas()  
 }
 
 function setText(){
-    var txt = gMeme.txts[0].line;
-    gCtx.beginPath();
 
-    gCtx.fillStyle = '#ffffff'
+    let meme = getMeme();
+    let txts = meme.txts;
+    txts.map((txt) => {
+        gCtx.fillStyle = `${txt.color}`;
+        gCtx.font = `${txt.size}px impact Arial`;
+        gCtx.fillText(txt.line, txt.posX, txt.posY);
+    })
 
-    gCtx.font = "40px impact Arial";
-    gCtx.fillText(txt, 100, 100);
-    gCtx.closePath();
-    gCtx.strokeText(txt, 100, 100);
+}
+
+function onMoveLineDown(){
+    let meme = getMeme()
+    meme.txts[meme.selectedTxtIdx].posY += 5;
+    renderCanvas();
+}
+
+function onMoveLineUp(){
+    let meme = getMeme()
+    meme.txts[meme.selectedTxtIdx].posY -= 5;
+    renderCanvas();
+}
+
+function onSwichLine(){
+    let txts = getMeme().txts
+    let tmpTxt = txts[0].line;
+    txts[0].line = txts[1].line;
+    txts[1].line = tmpTxt;
+    renderCanvas();
+}
+
+
+
+
+function drawRect() {
+    let y = getMemeTxts().posY;
+    gCtx.rect(0, y-70, 550, 80)
+    gCtx.fillStyle = 'rgba(255, 255, 255, 0.43)'
+    gCtx.fillRect(0, y-70, 550, 80)
+
+}
+
+
+function onChangeColor(color){ 
+    changeColor(color) 
+    renderCanvas();
 }
