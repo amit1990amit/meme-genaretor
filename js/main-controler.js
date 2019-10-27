@@ -32,7 +32,7 @@ function onFilterKeyword(keyword) {
     let imgs = filterImgsByKeyword(keyword)
 
     let strHTML = imgs.map((img) => {
-        return `<div><img class="meme" onclick="saveId(${image.id})" src="${image.url}"  alt="meme"></div>`
+        return `<div><img class="meme" onclick="saveId(${img.id})" src="${img.url}"  alt="meme"></div>`
     });
 
     document.querySelector('.image-container').innerHTML = strHTML.join('');
