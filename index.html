@@ -21,7 +21,7 @@
                         <a href="#" onclick="renderImages()" class="nav-option">Gallery</a>
                     </li>
                     <li>
-                        <a href="#" class="nav-option">About</a>
+                        <a href="#" onclick="renderYourMems()" class="nav-option">Memes</a>
                     </li>
                 </ul>
                 <button class="toggle-menu-btn fa" onclick="toggleMenu()" alt="Open main menu">☰</button>
@@ -37,7 +37,7 @@
             
             </select>
             <form onsubmit="onSubmit(event)">
-                <input type="text" id="meme-name"  placeholder="search name">
+                <input type="text" id="meme-name"  placeholder="Enter a name">
                 <input  type="submit"  value="Search" />
             </form>
         </section>
@@ -63,9 +63,9 @@
                         quam rerum repudiandae quisquam quas. Magnam inventore doloribus,
                     </p>
                     <div class="icon-container flex">
-                            <div class="icon  flex both-align-center">f</div>
-                            <div class="icon  flex both-align-center">in</div>
-                            <div class="icon  flex both-align-center">A</div>
+                            <div class="icon  flex both-align-center"><img src="icons/facebook-logo.png" alt=""></div>
+                            <div class="icon  flex both-align-center"><img src="icons/linkedin-logo.png" alt=""></div>
+                            <div class="icon  flex both-align-center"><img src="icons/github-logo.png" alt=""></div>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@
     </div>
 
     <footer class="flex column both-align-center ">
-        <div class="logo"><img src="logo/LOGO.png" alt="logo"></div>
+        <div class="logo"><img src="logo/LOGO.png" alt="logo"></div> 
         <div class="rights">all rights reserved 2019</div>
     </footer >
 

@@ -19,11 +19,11 @@
                 <nav>
                     <ul class="main-menu clean-list flex align-center">
                         <li>
-                            <a href="#" class="nav-option">Gallery</a>
+                            <a href="./index.html" class="nav-option">Gallery</a>
                         </li>
                         <li>
                             <a href="#" class="nav-option">About</a>
-                        </li>
+                        </li> 
                     </ul>
                     <button class="toggle-menu-btn fa" onclick="toggleMenu()" alt="Open main menu">☰</button>
                     <div class="toggle-menu-screen screen" onclick="toggleMenu()" alt="toggle main menu"></div>
@@ -33,7 +33,10 @@
         <div class="main-container flex ">
             <div class="secondery-container flex flex-space-around">
                 <div class="canvas-container flex">
-                        <canvas id="my-canvas" width="540" height="550" >            
+                        <canvas id="my-canvas" width="540" height="550" 
+                        onmousedown="onMouseDown(event)"
+                        onmouseup="onMouseUp(event)"
+                        onmousemove="handleMouse(event)">             
                         </canvas>
                 </div>
                 <div class="image-convas">
@@ -46,17 +49,18 @@
                         <input onkeyup="onSetText()" type="text" id="text" name="text" placeholder="txt" />
                     </div>  
                     <div class="btn-con">
-                        <button onclick="onSwichLine()">switch</button>
-                        <button>add</button>
-                        <button>remove</button>
-                        <button onclick="onIncrease()">incerse</button>
-                        <button onclick="onDecrease()">decrise</button>
+                        <button onclick="onSwichLine()"><img src="icons/switch.png" alt=""></button>
+                        <button><img src="icons/add.png" alt="add"></button>
+                        <button><img src="icons/trash.png" alt=""></button>
+                        <button onclick="onIncrease()"><img src="icons/increase.png" alt=""></button>
+                        <button onclick="onDecrease()"><img src="icons/decrease.png" alt=""></button>
                         <button onclick="onUp()">bottom</button>
                         <button onclick="onDown()">top</button>
-                        <button onclick="onMoveLineUp()">+</button>
-                        <button onclick="onMoveLineDown()">-</button>
-               
-                        <input onchange="onChangeColor(this.value)" type="color" id="color" name="color"/>
+                        <button onclick="onMoveLine(-5)"><img src="icons/up.png" alt=""></button>
+                        <button onclick="onMoveLine(5)"><img src="icons/down.png" alt=""></button>
+                       
+                        <button><label for="color"><img src="icons/color.png" alt=""></label></button>
+                        <input class="color-input" onchange="onChangeColor(this.value)" type="color" id="color" name="color"/>
                        
                         <select onchange="onAddIcon(this.value)">
                             <option value="😍">😍</option>
@@ -71,14 +75,24 @@
 
                         </select>
                         
-                    </div>  
-                    
+                        <button><a href="#"  onclick="onSaveImg(this)" >Save</a></button>  
+                        <button><a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download</a></button> 
+                        <!-- <button><a href="">Share</a></button> -->
+                    </div> 
+                    <form class="flex" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+                        <input class="file-input btn" type="file" name="image" onchange="onImgInput(event)" />
+                      <input name="img" id="imgData" type="hidden" /> 
+                      <button class="btn" type="submit">Publish</button>
+                      <a href="#" class="btn aaa" onclick="downloadImg(this)" download="my-img.jpg">Download as jpeg</a>
+                      <div class="share-container"></div>
+                    </form>
+                 
         
                 </div>  
             </div>
         </div>
             
-        <img src="icons/increase.png" alt="">
+    
         
         <footer class="flex column both-align-center ">
             <div class="logo"><img src="logo/LOGO.png" alt="logo"></div>

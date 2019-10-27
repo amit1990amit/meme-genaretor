@@ -64,7 +64,12 @@ nav li:first-child{
   display: none;
 }
 
+/* search container */
 
+form input:first-child{
+  border: none;
+  border-bottom: 1px solid black;
+}
 
  
 
@@ -157,6 +162,13 @@ nav li:first-child{
     color: white;
     font-size: 30px;
     margin-right: 1rem;
+  }
+
+  .icon img{
+    width: 25px;
+    height: 25px;
+    background-color: #ff7f00;
+  
   }
 
 
