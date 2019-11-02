@@ -4,6 +4,7 @@ let gCanvas;
 let gCtx;
 
 function init() {
+    setCanvasSize();
     gCanvas = document.querySelector('#my-canvas');
     gCtx = gCanvas.getContext('2d')
     upload();
@@ -26,7 +27,10 @@ function renderCanvas() {
 }
 
 function drawImg() {
+ 
+
     const img = document.querySelector('.image-convas img');
+    // TODO take img.width, img.height and make ratio
     gCtx.drawImage(img, 0, 0, gCanvas.width, gCanvas.height)
 }
 
@@ -145,6 +149,21 @@ function isOnText(ev) {
     return false;
 
 }
+
+
+
+function setCanvasSize(){
+    var elCanvasContainer = document.querySelector('.canvas-container');
+    var elCanvas = document.querySelector('#my-canvas');
+    console.log(elCanvasContainer);
+    
+    elCanvas.width = elCanvasContainer.offsetWidth;
+    elCanvas.height = elCanvasContainer.offsetHeight;
+    
+    
+}
+
+
 
  ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

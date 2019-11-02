@@ -12,7 +12,7 @@ function renderImages() {
     let strHTML = '';
 
     for (let i = 0; i < imgs.length; i++) {
-        strHTML += `<div><img class="meme" onclick="saveId(${imgs[i].id})" src="${imgs[i].url}"  alt="meme"></div>`
+        strHTML += `<div><img  class="meme" onclick="saveId(${imgs[i].id})" src="${imgs[i].url}"  alt="meme"></div>`
     }
 
     document.querySelector('.image-container').innerHTML = strHTML;
@@ -31,35 +31,37 @@ function renderYourMems() {
 function onFilterKeyword(keyword) {
     let imgs = filterImgsByKeyword(keyword)
 
-    let strHTML = imgs.map((img) => {
-        return `<div><img class="meme" onclick="saveId(${img.id})" src="${img.url}"  alt="meme"></div>`
-    });
+    // let strHTML = imgs.map((img) => {
+    //     return `<div><img class="meme" onclick="saveId(${img.id})" src="${img.url}"  alt="meme"></div>`
+    // });
 
-    document.querySelector('.image-container').innerHTML = strHTML.join('');
-    // let strHTML = '';
+    // document.querySelector('.image-container').innerHTML = strHTML.join('');
+    let strHTML = '';
 
-    // for (let i = 0; i < imgs.length; i++) {
-    //     strHTML += `<div><img class="meme" onclick="saveId(${imgs[i].id})" src="${imgs[i].url}"  alt="meme"></div>`
-    // }
+    for (let i = 0; i < imgs.length; i++) {
+        strHTML += `<div><img class="meme" onclick="saveId(${imgs[i].id})" src="${imgs[i].url}"  alt="meme"></div>`
+    }
 
-    // document.querySelector('.image-container').innerHTML = strHTML;
+    document.querySelector('.image-container').innerHTML = strHTML;
 }
 
 function SearchMeme(name) {
-    let images = filterImgsByname(name)
-    //let strHTML = '';
+    let imgs = filterImgsByname(name)
+    let strHTML = '';
 
-    let strHTML = images.map((image) => {
-        return `<div><img class="meme" onclick="saveId(${image.id})" src="${image.url}"  alt="meme"></div>`
-    })
+    // let strHTML = images.map((image) => {
+    //     return `<div><img class="meme" onclick="saveId(${image.id})" src="${image.url}"  alt="meme"></div>`
+    // })
 
-    // for (let i = 0; i < imgs.length; i++) {
-    //     strHTML += `<div><img class="meme" onclick="saveId(${imgs[i].id})" src="${imgs[i].url}"  alt="meme"></div>`
-    // }
+    for (let i = 0; i < imgs.length; i++) {
+        strHTML += `<div><img class="meme" onclick="saveId(${imgs[i].id})" src="${imgs[i].url}"  alt="meme"></div>`
+    }
 
-    // document.querySelector('.image-container').innerHTML = strHTML;
-    document.querySelector('.image-container').innerHTML = strHTML.join('');
+    document.querySelector('.image-container').innerHTML = strHTML;
+    //document.querySelector('.image-container').innerHTML = strHTML.join('');
 }
+
+
 
 
 // function toggleMenu() {
